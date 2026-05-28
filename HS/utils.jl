@@ -55,7 +55,6 @@ function construct_c2mat(allrs, allc2;dx = 0.01)
 end
 
 function solve_OZ4ρ2(ringc2,ρ;dx = 0.01)
-    @warn("function written for ,simple' situations")
     r = (0.005:0.01:length(ρ)*dx-0.005)
     f0 = findfirst(x -> x != 0, ρ)
     l0  = findlast(x -> x != 0, ρ)

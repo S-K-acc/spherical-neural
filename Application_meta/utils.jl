@@ -30,7 +30,6 @@ end
 
 
 function solve_OZ4ρ2(barc2,ρ;dx = 0.01)
-    @warn("function written for ,simple' situations")
     r = (0.005:0.01:length(ρ)*dx-0.005)
     f0 = findfirst(x -> x != 0, ρ)
     l0  = findlast(x -> x != 0, ρ)

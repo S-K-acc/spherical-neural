@@ -145,7 +145,7 @@ function c1_single_rad(model,mp)
     model = model |> gpu 
     function (ρ,r,cor,trafo)
         ρ = ρ .* trafo .* cor
-        input = vcat(ρ,C_HS(r))|> gpu 
+        input = vcat(ρ,R_HS(r))|> gpu 
         out = model(input) |> cpu |> vec 
         out
     end
