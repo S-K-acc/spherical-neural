@@ -29,13 +29,13 @@ end
 
 
 
-function solve_OZ4ρ2(ringc2,ρ;dx = 0.01)
+function solve_OZ4ρ2(barc2,ρ;dx = 0.01)
     @warn("function written for ,simple' situations")
     r = (0.005:0.01:length(ρ)*dx-0.005)
     f0 = findfirst(x -> x != 0, ρ)
     l0  = findlast(x -> x != 0, ρ)
-    c2 = zero.(ringc2[1:l0,1:l0])
-    c2[f0:l0,f0:l0] = ringc2[f0:l0,f0:l0]
+    c2 = zero.(barc2[1:l0,1:l0])
+    c2[f0:l0,f0:l0] = barc2[f0:l0,f0:l0]
     Vol = 4*π*Diagonal(r[1:l0].^2)
     lhs_h2 = I - ρ[1:l0].*c2 * Vol .*dx
     h_sol = lhs_h2 \ c2
