@@ -3,8 +3,8 @@ function generate_inout(ρ_profiles, c1_profiles, eps_vals; window_width=2.0, dx
     xs = collect(0.005:0.01:10) #maximal grid
     scale_dict = construct_scale_dict(xs;dx = 0.01)
     rabs = collect(0.005:0.01:12)
-    dC = diff(C_HS.(rabs))
-    push!(dC,0);
+    dR = diff(R_HS.(rabs))
+    push!(dR,0);
        
     window_bins = 2 * round(Int, window_width / dx) + 1
     ρ_windows_all = Vector{Vector{Float32}}()
@@ -19,9 +19,9 @@ function generate_inout(ρ_profiles, c1_profiles, eps_vals; window_width=2.0, dx
             end
             r = eps[i]
             j = findall(x->x≈abs(r), rabs)
-            rint = C_HS(eps[i])
+            rint = R_HS(eps[i])
             correcture = scale_dict[r]
-            if rand() < dC[j[1]]/dC[1] # ≈ equal distribution of training data
+            if rand() < dR[j[1]]/dR[1] # ≈ equal distribution of training data
                 push!(ρ_windows_all, correcture .* ρ_windows[:,i])
                 push!(c1_values_all, c1[i])
                 push!(r_values_all, rint)
