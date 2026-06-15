@@ -3,7 +3,7 @@
 This repository contains code, data and neural models for the methods presented in:
 
 **Spherical metadensity functional learning for inhomogeneous classical fluids**  
-*Stefanie M. Kampa, Matthias Schmidt and Florian Sammüller*
+*Stefanie M. Kampa, Matthias Schmidt and Florian Sammüller [arXiv:2606.14370](https://arxiv.org/abs/2606.14370)*
 
 
 ## Instructions
